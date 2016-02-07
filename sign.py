@@ -26,9 +26,9 @@ ibid.source.irc.Ircbot.topicUpdated = topicUpdated
 ibid.source.irc.Ircbot.get_topic = get_topic
 
 beepdisc = {
-               "SIGN"    : "beep -f1 -l150 -r3 -d250".split(),
+               "SIGN"    : "beep -f1 -l150 -r10 -d250".split(),
                "SECRET"  : "beep -l145 -f14.75 -n -l130 -f13.96 -n -l135 -f11.74 -n -l135 -f9.89 -n -l130 -f7.87 -n -l135 -f12.55 -n -l135 -f15.63 -n -l265 -f19.90".split(),
-               "EMPIRE"  : "beep -l350 -f39.2 -D100 -n -l350 -f39.2 -D100 -n -l350 -f39.2 -D100 -n -l250 -f31.1 -D100 -n -l25 -f46.6 -D100 -n -l350 -f39.2 -D100 -n -l250 -f31.1 -D100 -n -l25 -f46.6 -D100 -n -l700 -f39.2 -D100".split(),
+               "OCARINA" : "beep -l500 -f44 -n -l1000 -f29.5 -n -l500 -f35 -n -l500 -f44 -n -l1000 -f29.5 -n -l500 -f35 -n -l250 -f44 -n -l250 -f52 -n -l500 -f49 -n -l500 -f39 -n -l250 -f35.5 -n -l250 -f39 -n -l500 -f44 -n -l500 -f29 -n -l250 -f26 -n -l250 -f32.5 -n -l750 -f29".split(),
            }
 
 class Sign( Processor ):
@@ -94,7 +94,7 @@ class Sign( Processor ):
 
       self.old_status = status
       
-      alert = "SECRET" if status else "EMPIRE" 
+      alert = "SECRET" if status else "OCARINA" 
 
       p = subprocess.Popen(beepdisc[alert])
       p.wait()

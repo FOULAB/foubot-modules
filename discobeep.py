@@ -13,7 +13,7 @@ beepdisc = {
                "PINGU"   : "beep -f50 -r2 -l200 -n -f40 -r2".split(),
                "FANTASY" : "beep -f49 -l53 -D53 -n -f49 -l53 -D53 -n -f49 -l53 -D53 -n -f49 -l428 -n -f39 -l428 -n -f44 -l428 -n -f49 -l107 -D214 -n -f44 -l107 -n -f49 -l857".split(),
                "EMPIRE"  : "beep -l350 -f39.2 -D100 -n -l350 -f39.2 -D100 -n -l350 -f39.2 -D100 -n -l250 -f31.1 -D100 -n -l25 -f46.6 -D100 -n -l350 -f39.2 -D100 -n -l250 -f31.1 -D100 -n -l25 -f46.6 -D100 -n -l700 -f39.2 -D100".split(),
-               "OCARINA" : "beep -l500 -f88 -n -l1000 -f59 -n -l500 -f70 -n -l500 -f88 -n -l1000 -f59 -n -l500 -f70 -n -l250 -f88 -n -l250 -f104 -n -l500 -f98 -n -l500 -f78 -n -l250 -f69 -n -l250 -f78 -n -l500 -f88 -n -l500 -f58 -n -l250 -f52 -n -l250 -f65 -n -l750 -f58".split(),
+               "OCARINA" : "beep -l500 -f44 -n -l1000 -f29.5 -n -l500 -f35 -n -l500 -f44 -n -l1000 -f29.5 -n -l500 -f35 -n -l250 -f44 -n -l250 -f52 -n -l500 -f49 -n -l500 -f39 -n -l250 -f35.5 -n -l250 -f39 -n -l500 -f44 -n -l500 -f29 -n -l250 -f26 -n -l250 -f32.5 -n -l750 -f29".split(),
            }
 
 class Disco( Processor ):
