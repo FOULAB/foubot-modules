@@ -27,6 +27,7 @@ ibid.source.irc.Ircbot.get_topic = get_topic
 
 beepdisc = {
                "SIGN"    : "beep -f1 -l150 -r3 -d250".split(),
+               "SECRET"  : "beep -l145 -f14.75 -n -l130 -f13.96 -n -l135 -f11.74 -n -l135 -f9.89 -n -l130 -f7.87 -n -l135 -f12.55 -n -l135 -f15.63 -n -l265 -f19.90".split(),
                "EMPIRE"  : "beep -l350 -f39.2 -D100 -n -l350 -f39.2 -D100 -n -l350 -f39.2 -D100 -n -l250 -f31.1 -D100 -n -l25 -f46.6 -D100 -n -l350 -f39.2 -D100 -n -l250 -f31.1 -D100 -n -l25 -f46.6 -D100 -n -l700 -f39.2 -D100".split(),
            }
 
@@ -93,6 +94,7 @@ class Sign( Processor ):
 
       self.old_status = status
       
-      if status == 0:
-        p = subprocess.Popen(beepdisc["EMPIRE"])
-        p.wait()
+      alert = "SECRET" if status else "EMPIRE" 
+
+      p = subprocess.Popen(beepdisc[alert])
+      p.wait()
