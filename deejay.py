@@ -27,6 +27,8 @@ class Deejay(Processor):
         stream_data = {"jsonrpc": "2.0", "id": 1, "method": "core.playback.get_stream_title"}
         track_data = {"jsonrpc": "2.0", "id": 1, "method": "core.playback.get_current_track"}
         
+        track_info = u'Well that was unfortunate...'
+ 
         req = urllib2.Request('http://melody.lan:6680/mopidy/rpc')
         req.add_header('Content-Type', 'application/json')
         
@@ -58,15 +60,20 @@ class Deejay(Processor):
             result = json.loads(result)
 
             if result['result'] == None:
-                return u'Nothing is currently playing.' 
-    
-            result = result['result']['name']
-            return u'Curently playing: %s' % result
+                track_info = u'Nothing is currently playing.' 
+            else:
+                info = u'Well that was unfortunate...'
+                result_keys = result['result'].keys()
+                if 'artists' in result_keys:
+                    info = u'%s - %s' % ( result['result']['name'], result['result']['artists'][0]['name'] )
+                else:
+                    info = result['result']['name']
+                track_info = u'Curently playing: %s' % info
         else: 
             result = result['result']
-            return u'Curently playing: %s' % result
+            track_info = u'Curently playing: %s' % result
 
-        return u'Well this is embarassing...'
+        return track_info
 
     @match(r'^!dj$')
     def dj_playing(self, event):

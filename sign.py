@@ -88,7 +88,7 @@ class Sign( Processor ):
         pos = 0
         topic_parts.append("")
 
-      topic_parts[ pos ] = " Lab status: open " if status else " Lab status: closed "
+      topic_parts[ pos ] = " Lab status: OPEN " if status else " Lab status: CLOSED "
         
       event.addresponse( u"//".join( topic_parts ), topic = True, target = lab_channel, address = False, source = u"freenode" )
 
