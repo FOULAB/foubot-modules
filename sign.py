@@ -80,12 +80,13 @@ class Sign( Processor ):
       topic = ibid.sources['freenode'].proto.get_topic( lab_channel )
       topic_parts = topic.split( u"//" )
       topiclen = len( topic_parts )
-      if topiclen >= 3 :
-        pos = -2
-      elif topiclen == 2 or topiclen == 1:
-        pos = -1
-      else:
-        pos = 0
+      pos = 0
+      while pos < topiclen:
+        if "Lab status: " in topic_parts[pos]:
+          break
+        pos += 1
+        
+      if pos == topiclen:
         topic_parts.append("")
 
       topic_parts[ pos ] = " Lab status: OPEN " if status else " Lab status: CLOSED "
